@@ -3,14 +3,23 @@ output_file = "5000_acc.txt"
 
 so_luong = 5000
 
-with open(input_file, "r") as f_in:
-    with open(output_file, "w") as f_out:
-        for i, line in enumerate(f_in):
-            if i >= so_luong:
-                break
-            f_out.write(line)
+try:
+    with open(input_file, "rb") as f_in:
+        with open(output_file, "wb") as f_out:
+            count = 0
 
-print("Da lay 5000 acc!")
-print("File moi:", output_file)
+            for line in f_in:
+                if count >= so_luong:
+                    break
+
+                f_out.write(line)
+                count += 1
+
+    print("")
+    print("Da lay:", count, "dong")
+    print("File moi:", output_file)
+
+except Exception as e:
+    print("Loi:", e)
 
 input("Nhan Enter de thoat...")
