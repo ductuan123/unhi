@@ -1,0 +1,34 @@
+import os
+
+def dem_so_dong(file_path):
+    if not os.path.isfile(file_path):
+        print("Khong tim thay file!")
+        return
+
+    try:
+        f = open(file_path, "r")
+        so_dong = 0
+
+        for dong in f:
+            so_dong += 1
+
+        f.close()
+
+        print("")
+        print("File:", file_path)
+        print("Tong so dong:", so_dong)
+
+    except Exception as e:
+        print("Co loi:", e)
+
+
+print("=== TOOL DEM SO DONG FILE ===")
+
+duong_dan = input("Nhap duong dan file: ")
+duong_dan = duong_dan.strip()
+duong_dan = duong_dan.strip('"')
+duong_dan = duong_dan.strip("'")
+
+dem_so_dong(duong_dan)
+
+input("Nhan Enter de thoat...")
